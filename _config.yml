@@ -1,1 +1,5 @@
-theme: jekyll-theme-cayman
+title: My Alembic Site
+description: A site using Alembic, the Jekyll theme
+plugins:
+  - jekyll-remote-theme
+remote_theme: daviddarnes/alembic
