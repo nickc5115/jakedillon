@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
       eventsContainer.innerHTML = '';
       events.forEach(event => {
         const eventCard = document.createElement('div');
-        eventCard.className = 'event-card';
+        eventCard.className = 'event-card animate-on-scroll';
         const ticketLinkHtml = event.ticketLink 
           ? `<a href="${event.ticketLink}" target="_blank" class="event-ticket-link">Get Tickets</a>`
           : '<span class="no-tickets">Free Event</span>';
@@ -34,6 +34,25 @@ document.addEventListener('DOMContentLoaded', function() {
           ${ticketLinkHtml}
         `;
         eventsContainer.appendChild(eventCard);
+        
+        // When dynamically adding elements, we need to observe them separately
+        // since the main observer might already have been initialized
+        setTimeout(() => {
+          // Try to observe with existing observer or create a new one just for this card
+          if (window.scrollAnimationObserver) {
+            window.scrollAnimationObserver.observe(eventCard);
+          } else {
+            const cardObserver = new IntersectionObserver((entries, obs) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('in-view');
+                  obs.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.1 });
+            cardObserver.observe(eventCard);
+          }
+        }, 100);
       });
     })
     .catch(error => {
@@ -88,16 +107,42 @@ socialLinks.forEach(link => {
 });
 
 // 7. Animate elements on scroll (simple fade-in)
-const animatedEls = document.querySelectorAll('.animate-on-scroll');
-const observer = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      obs.unobserve(entry.target);
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Initializing scroll animations');
+  
+  // Initialize after a short delay to ensure elements are loaded
+  setTimeout(() => {
+    const animatedEls = document.querySelectorAll('.animate-on-scroll');
+    console.log('Found animate elements:', animatedEls.length);
+    
+    if (animatedEls.length > 0) {
+      // Create the observer and store it in window for other scripts to access
+      window.scrollAnimationObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+            console.log('Element in view:', entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      
+      animatedEls.forEach(el => window.scrollAnimationObserver.observe(el));
     }
-  });
-}, { threshold: 0.1 });
-animatedEls.forEach(el => observer.observe(el));
+    
+    // Add in-view class to elements already in viewport on page load
+    const checkInitialVisibility = () => {
+      document.querySelectorAll('.animate-on-scroll:not(.in-view)').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('in-view');
+        }
+      });
+    };
+    
+    checkInitialVisibility();
+  }, 100);
+});
 
 // 9. Spotify/YouTube Embeds (auto-resize, accessible)
 function makeEmbedsResponsive() {
