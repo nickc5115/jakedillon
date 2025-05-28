@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Background circle with folk/rock-inspired gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d2e3f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+    </linearGradient>
+    <filter id="textureFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="2" />
+      <feDisplacementMap in="SourceGraphic" scale="1.5" />
+    </filter>
+  </defs>
+  
+  <!-- Main circle with texture and border -->
+  <circle cx="256" cy="256" r="250" fill="url(#bgGradient)" filter="url(#textureFilter)" />
+  <circle cx="256" cy="256" r="250" fill="none" stroke="#3c4a5e" stroke-width="8" />
+  
+  <!-- Vinyl record grooves - enhanced for folk/rock aesthetic -->
+  <circle cx="256" cy="256" r="230" fill="none" stroke="#a3a3a3" stroke-width="1.5" stroke-dasharray="1,3" />
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#a3a3a3" stroke-width="1" stroke-dasharray="1,2" />
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#a3a3a3" stroke-width="1" />
+  
+  <!-- Guitar string-inspired elements - enhanced -->
+  <line x1="130" y1="256" x2="382" y2="256" stroke="#a3a3a3" stroke-width="1" />
+  <line x1="256" y1="130" x2="256" y2="382" stroke="#a3a3a3" stroke-width="1" />
+  
+  <!-- Guitar fret-like elements -->
+  <line x1="170" y1="180" x2="342" y2="180" stroke="#a3a3a3" stroke-width="0.7" opacity="0.6" />
+  <line x1="170" y1="332" x2="342" y2="332" stroke="#a3a3a3" stroke-width="0.7" opacity="0.6" />
+  
+  <!-- Inner accent circle -->
+  <circle cx="256" cy="256" r="120" fill="none" stroke="#d13a2c" stroke-width="4" />
+  
+  <!-- JD letters, enhanced folk-rock style -->
+  <text x="256" y="278" text-anchor="middle" dominant-baseline="middle" 
+        font-family="Georgia, serif" font-weight="bold" font-size="190" fill="#ffffff" 
+        stroke="#1d2e3f" stroke-width="1">JD</text>
+  
+  <!-- Sound wave element - enhanced for folk/rock -->
+  <path d="M156,340 Q188,320 220,340 Q252,360 284,340 Q316,320 348,340" 
+        fill="none" stroke="#d13a2c" stroke-width="4" stroke-linecap="round" />
+</svg>
