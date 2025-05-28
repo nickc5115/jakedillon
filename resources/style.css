@@ -577,6 +577,15 @@ section {
   opacity: 0.7;
 }
 
+/* Ensure copyright is always visible, regardless of animation status */
+.footer-copyright.animate-on-scroll {
+  opacity: 0.7;
+}
+
+.footer-copyright.animate-on-scroll.in-view {
+  opacity: 0.7;
+}
+
 /* Contact Section */
 #contact {
   background-color: rgba(0,0,0,0.75);
