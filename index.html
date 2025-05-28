@@ -1,7 +1,117 @@
----
-layout: home
-title: Welcome
----
-<link rel="stylesheet" href="resources/style.css">
-<h1>Welcome to my Alembic-powered site!</h1>
-<p>This homepage is written in HTML and uses the Alembic theme.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Dillon - Musician</title>
+    <link rel="stylesheet" href="resources/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay loop muted playsinline>
+            <source src="resources/images/AQP889xlrH375ooH9fQbkgvwFhn8HpRx8_jsMRlMVYA345rHVSulnefKFbQXpWeH5N2OblTkQH7XxBo4nijV2YaVZFd4IWFf9QEMIOg.mov" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <div class="top-social-links">
+                <a href="https://open.spotify.com/artist/0KX7BCrciAnctgVZF1R6kV" target="_blank">
+                    <i class="fab fa-spotify"></i>
+                </a>
+                <a href="https://www.instagram.com/jakedillonofficial" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCFehgCuXcinNBM5UVWxBLRA" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            <h1>Jake Dillon</h1>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#events">Events</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="section-content">
+            <h2 class="section-title">About</h2>
+            <div class="bio-text">
+                <p>I'm Jake Dillon, a 29-year-old former special ed teacher and singer songwriter from Philly, now living in Bucks County. I blend folk, country, and indie pop into a sound that's honest and down to earth. I play drums, piano, and guitar on my tracks and write almost every day, drawing inspiration from relationships, heartbreak, and my faith journey. Creating music people can truly connect with is my passion.</p>
+                
+                <p>Since 2019, I've released over 70 original songs and tour the country regularly. I play local shows weekly, as well as stops in places like Waco, Texas — at Chip and Joanna Gaines' Magnolia Silos. Philly is home, and I'm proud to have built a loyal following where it all began.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="section-content">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div id="events-container" class="events-grid">
+                <!-- Events will be loaded dynamically here -->
+                <div class="loading">Loading events...</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Load events from JSON file
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('resources/events.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(events => {
+                    const eventsContainer = document.getElementById('events-container');
+                    eventsContainer.innerHTML = ''; // Clear loading message
+                    
+                    events.forEach(event => {
+                        const eventCard = document.createElement('div');
+                        eventCard.className = 'event-card';
+                        
+                        // Create ticket link HTML only if ticketLink exists
+                        const ticketLinkHtml = event.ticketLink 
+                            ? `<a href="${event.ticketLink}" target="_blank" class="event-ticket-link">Get Tickets</a>`
+                            : '<span class="no-tickets">Free Event</span>';
+                        
+                        eventCard.innerHTML = `
+                            <div class="event-date">${event.date}</div>
+                            <h3 class="event-title">${event.title}</h3>
+                            <div class="event-time">${event.time}</div>
+                            <div class="event-location">${event.location}</div>
+                            <p class="event-description">${event.description}</p>
+                            ${ticketLinkHtml}
+                        `;
+                        
+                        eventsContainer.appendChild(eventCard);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading events:', error);
+                    document.getElementById('events-container').innerHTML = 
+                        '<p class="error-message">Sorry, there was an error loading events. Please try again later.</p>';
+                });
+        });
+    </script>
+</body>
+</html>
