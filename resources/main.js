@@ -11,7 +11,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Load events from JSON file
 document.addEventListener('DOMContentLoaded', function() {
-  fetch('resources/events.json')
+  // Add cache-busting timestamp to prevent the browser from using cached data
+  const timestamp = new Date().getTime();
+  fetch(`resources/events.json?t=${timestamp}`, {
+    cache: 'no-store' // Force a network request, don't use any cache
+  })
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
@@ -22,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
       events.forEach(event => {
         const eventCard = document.createElement('div');
         eventCard.className = 'event-card animate-on-scroll';
-        const ticketLinkHtml = event.ticketLink 
+        // If ticketLink exists and is not null, show the ticket link, otherwise show "Free Event"
+        const ticketLinkHtml = (event.ticketLink && event.ticketLink !== null)
           ? `<a href="${event.ticketLink}" target="_blank" class="event-ticket-link">Get Tickets</a>`
           : '<span class="no-tickets">Free Event</span>';
         eventCard.innerHTML = `
@@ -61,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
         '<p class="error-message">Sorry, there was an error loading events. Please try again later.</p>';
     });
 });
+
+
 
 // Hamburger menu toggle
 const hamburger = document.getElementById('hamburger-menu');
@@ -141,6 +148,15 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     checkInitialVisibility();
+    
+    // Gallery image progressive loading animation
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    if (galleryItems.length > 0) {
+      galleryItems.forEach((item, index) => {
+        // Add staggered delay for nice cascade effect
+        item.style.transitionDelay = `${index * 100}ms`;
+      });
+    }
   }, 100);
 });
 
@@ -175,3 +191,5 @@ hamburgerBtn.addEventListener('keydown', (e) => {
     hamburgerBtn.click();
   }
 });
+
+

@@ -1,54 +1,42 @@
 [
   {
     "id": 1,
-    "title": "Summer Night Live",
-    "date": "June 10, 2025",
-    "time": "8:00 PM",
-    "location": "The Foundry, Philadelphia, PA",
-    "description": "Join Jake for an intimate evening of music at The Foundry.",
-    "ticketLink": "https://example.com/tickets-foundry"
+    "title": "The JDuo at Langhorne Brewing Company",
+    "date": "June 8, 2025",
+    "time": "4:00 PM – 7:00 PM",
+    "location": "Langhorne Brewing Company, Langhorne, PA",
+    "description": "Come enjoy music from The JDuo while sipping on craft beers at Langhorne Brewing Company."
   },
   {
     "id": 2,
-    "title": "Magnolia Market Performance",
-    "date": "July 15, 2025",
-    "time": "6:30 PM",
-    "location": "Magnolia Silos, Waco, TX",
-    "description": "Special performance at Chip and Joanna Gaines' Magnolia Market.",
-    "ticketLink": null
+    "title": "Solo at The Boathouse",
+    "date": "June 25, 2025",
+    "time": "6:00 PM – 9:00 PM",
+    "location": "The Boathouse, Lambertville, NJ",
+    "description": "An intimate solo performance at the scenic Boathouse in Lambertville."
   },
   {
     "id": 3,
-    "title": "River Folk Festival",
-    "date": "August 5, 2025",
-    "time": "3:00 PM",
-    "location": "Riverside Park, New Hope, PA",
-    "description": "Jake will be performing at the annual River Folk Festival alongside other local artists."
+    "title": "The JDuo at Chambers",
+    "date": "June 28, 2025",
+    "time": "6:00 PM – 9:00 PM",
+    "location": "Chambers, Doylestown, PA",
+    "description": "Enjoy an evening of music from The JDuo at Chambers in downtown Doylestown."
   },
   {
     "id": 4,
-    "title": "Coffee House Sessions",
-    "date": "August 23, 2025",
-    "time": "7:00 PM",
-    "location": "Bean There Café, Doylestown, PA",
-    "description": "An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.An acoustic evening of original music in a cozy setting.",
-    "ticketLink": "https://example.com/tickets-coffee"
+    "title": "The JDuo at Triumph Brewing",
+    "date": "June 29, 2025", 
+    "time": "2:00 PM – 5:00 PM",
+    "location": "Triumph Brewing, Langhorne, PA",
+    "description": "Spend your Sunday afternoon with great music and craft beer at Triumph Brewing."
   },
   {
     "id": 5,
-    "title": "Album Release Show",
-    "date": "September 12, 2025",
-    "time": "9:00 PM",
-    "location": "World Cafe Live, Philadelphia, PA",
-    "description": "Celebrating the release of Jake's new album with a full band performance.",
-    "ticketLink": "https://example.com/tickets-album-release"
-  },
-  {
-    "id": 6,
-    "title": "Autumn Acoustic Tour",
-    "date": "October 8, 2025",
-    "time": "8:30 PM",
-    "location": "The Listening Room, Nashville, TN",
-    "description": "Jake brings his songs to Nashville for a special acoustic performance."
+    "title": "Solo at Evansburg Vineyards",
+    "date": "July 20, 2025",
+    "time": "2:00 PM – 5:00 PM",
+    "location": "Evansburg Vineyards, PA",
+    "description": "A relaxing afternoon of music among the vines at Evansburg Vineyards."
   }
 ]
