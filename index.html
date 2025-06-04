@@ -11,13 +11,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="resources/images/favicon/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="resources/images/jd-icon.svg">
+  <!-- No inline styles needed for background image -->
 </head>
 <body>
-  <!-- Video Background -->
-  <div class="video-background">
-    <video autoplay loop muted playsinline>
-      <source src="resources/videos/everDeserved.mov" type="video/mp4">
-    </video>
+  <!-- Image Background -->
+  <div class="background-image">
+    <!-- Empty div with background image applied via CSS -->
+  </div>
+  
+  <!-- Custom Audio Player -->
+  <div class="audio-player-container">
+    <div class="audio-player">
+      <button id="play-btn" class="audio-btn play-pause-btn" aria-label="Play">
+        <i class="fas fa-play"></i>
+      </button>
+      <div class="track-info">
+        <span class="track-title">Ever Deserved</span>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="time-display">
+          <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+        </div>
+      </div>
+      <div class="volume-container">
+        <button id="mute-btn" class="audio-btn" aria-label="Mute">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.7">
+      </div>
+    </div>
+    <audio id="background-audio" loop preload="auto">
+      <source src="resources/audio/ever deserved v3.1.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
   </div>
 
   <div class="content">
@@ -81,20 +108,29 @@
       <h2 class="section-title animate-on-scroll">Gallery</h2>
       <p class="gallery-intro animate-on-scroll">Moments with Jake</p>
       <div class="photo-gallery animate-on-scroll">
-        <div class="gallery-item">
-          <img src="resources/images/gallery/JD01.jpg" alt="Jake Dillon performing" class="gallery-image" loading="lazy">
+        <div class="gallery-item" tabindex="0">
+          <img src="resources/images/gallery/JD02.jpg"class="gallery-image" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+          </div>
         </div>
-        <div class="gallery-item">
-          <img src="resources/images/gallery/JD02.jpg" alt="Jake Dillon on stage" class="gallery-image" loading="lazy">
+        <div class="gallery-item" tabindex="0">
+          <img src="resources/images/gallery/JD03.jpg" class="gallery-image" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+          </div>
         </div>
-        <div class="gallery-item">
-          <img src="resources/images/gallery/JD03.jpg" alt="Jake Dillon with guitar" class="gallery-image" loading="lazy">
+        <div class="gallery-item" tabindex="0">
+          <img src="resources/images/gallery/JD04.jpg" class="gallery-image" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+          </div>
         </div>
-        <div class="gallery-item">
-          <img src="resources/images/gallery/JD04.jpg" alt="Jake Dillon performance" class="gallery-image" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="resources/images/gallery/JD05.jpg" alt="Jake Dillon in concert" class="gallery-image" loading="lazy">
+        <div class="gallery-item" tabindex="0">
+          <img src="resources/images/gallery/JD05.jpg" class="gallery-image" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+          </div>
         </div>
       </div>
       <div class="gallery-cta animate-on-scroll">
@@ -138,5 +174,20 @@
     </div>
   </footer>
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  
+  <!-- Lightbox Modal for Gallery Images -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery lightbox">
+    <span class="lightbox-close" title="Close lightbox" aria-label="Close lightbox" tabindex="0">&times;</span>
+    <div class="lightbox-loader" id="lightbox-loader">
+      <div class="spinner"></div>
+    </div>
+    <img class="lightbox-content" id="lightbox-img" alt="" aria-describedby="lightbox-caption">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+    <div class="lightbox-controls">
+      <button class="lightbox-prev" title="Previous image" aria-label="View previous image" tabindex="0"><i class="fas fa-chevron-left"></i></button>
+      <button class="lightbox-next" title="Next image" aria-label="View next image" tabindex="0"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="lightbox-counter" aria-live="polite"></div>
+  </div>
 </body>
 </html>
