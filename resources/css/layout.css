@@ -107,7 +107,7 @@
 
 /* Hamburger Menu */
 .hamburger {
-  display: none;
+  display: none; /* Hide by default on all screen sizes */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -118,9 +118,8 @@
   background: none;
   border: none;
   outline: none;
-  position: fixed;
-  left: 20px;
-  top: 20px;
+  position: absolute; /* Use absolute instead of fixed */
+  left: -9999px; /* Move off-screen by default */
 }
 
 /* Circle background for hamburger menu */
@@ -163,6 +162,9 @@
     display: flex; 
     width: 40px;
     height: 40px;
+    position: fixed;
+    left: 20px;
+    top: 20px;
   }
 }
 
