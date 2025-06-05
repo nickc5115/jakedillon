@@ -52,8 +52,9 @@ const Navigation = (function() {
   }
 
   function toggleMobileMenu() {
-    if (mobileNav) {
+    if (mobileNav && hamburgerMenu) {
       mobileNav.classList.toggle('open');
+      hamburgerMenu.classList.toggle('active');
     }
   }
 
