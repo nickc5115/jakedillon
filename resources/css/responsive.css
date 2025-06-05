@@ -1,0 +1,43 @@
+/* responsive.css - Media queries for responsive design and print styles */
+
+@media (max-width: 1200px) {
+  .events-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+}
+
+@media (max-width: 992px) {
+  h1 { font-size: 3rem; }
+  .section-title { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; margin-bottom: 20px; }
+  .section-title { font-size: 2rem; }
+  .bio-text { font-size: 16px; line-height: 1.6; }
+  .event-card { padding: 20px; }
+  .event-title { font-size: 1.3rem; }
+}
+
+@media (max-width: 576px) {
+  h1 { font-size: 2rem; margin-bottom: 15px; }
+  .section-title { font-size: 1.8rem; }
+  .section-content { padding: 40px 15px; }
+  .event-card { padding: 15px; }
+  .event-title { font-size: 1.2rem; }
+  .event-description { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.8rem; }
+  .section-title { font-size: 1.6rem; }
+  .social-links a { width: 40px; height: 40px; font-size: 1.2rem; }
+  .top-social-links { gap: 15px; }
+  .event-ticket-link, .no-tickets { padding: 8px 15px; font-size: 0.85rem; }
+}
+
+@media print {
+  body { background: #fff; color: #000; }
+  .background-image, .social-links, .gallery-overlay, .lightbox, .footer-social-links { display: none; }
+  section { background: none !important; page-break-inside: avoid; padding: 20px 0; min-height: auto; }
+  h1, h2, h3 { color: #000; text-shadow: none; }
+  .event-card { break-inside: avoid; background: none; border: 1px solid #ccc; box-shadow: none; }
+}

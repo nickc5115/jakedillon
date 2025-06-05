@@ -1,0 +1,38 @@
+/* base.css - Reset, base, html/body, and background styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+  background-color: #000;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-image: url('../images/gallery/JD01.jpg');
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  animation: fadeInBackground 1.5s ease-in forwards;
+}
+
+@keyframes fadeInBackground {
+  0% { opacity: 0; }
+  100% { opacity: 0.8; }
+}

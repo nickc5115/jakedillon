@@ -1,0 +1,176 @@
+/* components.css - Event cards, gallery, lightbox, and reusable UI components */
+
+/* Audio Player Styles */
+.audio-player-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+}
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 30px;
+  padding: 8px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 350px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.audio-player:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.audio-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.audio-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.audio-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.play-pause-btn {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin-right: 10px;
+}
+
+.play-pause-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.track-info {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.track-title {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.progress-container {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  height: 4px;
+  width: 100%;
+  cursor: pointer;
+  margin: 6px 0;
+  position: relative;
+}
+
+.progress-bar {
+  background-color: #1DB954;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: width 0.1s linear;
+}
+
+.progress-container:hover .progress-bar {
+  background-color: #1ed760;
+}
+
+.time-display {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+}
+
+.volume-slider {
+  width: 60px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  transition: all 0.2s;
+  opacity: 0;
+  width: 0;
+  margin: 0;
+}
+
+.volume-container:hover .volume-slider {
+  width: 60px;
+  opacity: 1;
+  margin: 0 5px;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .audio-player-container {
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .audio-player {
+    width: 100%;
+    max-width: 300px;
+    padding: 6px 12px;
+  }
+  .play-pause-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .track-title {
+    font-size: 12px;
+  }
+  .time-display {
+    font-size: 10px;
+  }
+}
+
+/* Gallery, Lightbox, and other UI components would follow here... */
