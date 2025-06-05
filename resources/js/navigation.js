@@ -55,6 +55,17 @@ const Navigation = (function() {
     if (mobileNav && hamburgerMenu) {
       mobileNav.classList.toggle('open');
       hamburgerMenu.classList.toggle('active');
+
+      const barsIcon = hamburgerMenu.querySelector('.fa-bars');
+      const timesIcon = hamburgerMenu.querySelector('.fa-times');
+
+      if (hamburgerMenu.classList.contains('active')) {
+        barsIcon.style.display = 'none';
+        timesIcon.style.display = 'block';
+      } else {
+        barsIcon.style.display = 'block';
+        timesIcon.style.display = 'none';
+      }
     }
   }
 
