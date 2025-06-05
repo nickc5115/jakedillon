@@ -3,30 +3,44 @@
 /* Audio Player Styles */
 .audio-player-container {
   position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 900;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
   display: flex;
   justify-content: center;
   width: 100%;
   pointer-events: none;
+  background: transparent;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.audio-player-container.hidden {
+  transform: translateY(100%); /* When hidden, move the player down out of view */
+  opacity: 0; /* Add opacity transition for smoother appearance */
+  pointer-events: none; /* Prevent interaction when hidden */
+  visibility: visible; /* Keep visible during animation */
 }
 
 .audio-player {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 30px;
+  background-color: rgba(24, 24, 24, 0.95);
+  border-radius: 30px 30px 0 0;
   padding: 24px 24px 18px 24px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   max-width: 600px;
-  width: 100%;
+  width: auto;
   pointer-events: auto;
   gap: 10px;
   min-height: 110px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  margin-bottom: 0;
 }
 
 .audio-btn {
@@ -118,25 +132,25 @@
 
 @media (max-width: 768px) {
   .audio-player-container {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    bottom: 15px;
+    left: 0;
+    right: 0;
     padding: 0 8px;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
+    background: none;
   }
   .audio-player {
-    width: 100%;
-    max-width: 300px;
-    padding: 6px 12px;
+    width: auto;
+    max-width: 400px;
+    padding: 10px 15px;
+    border-radius: 20px 20px 0 0;
   }
   .play-pause-btn {
     width: 32px;
     height: 32px;
   }
   .track-title {
-    font-size: 12px;
+    font-size: 14px;
   }
   .time-display {
     font-size: 10px;
@@ -145,38 +159,100 @@
 
 @media (max-width: 600px) {
   .audio-player-container {
-    bottom: 10px;
-    padding: 0 8px;
+    padding: 0;
+    left: 0;
+    right: 0;
+    background: none;
+    justify-content: center;
+    width: 100%;
   }
   .audio-player {
-    max-width: 98vw;
-    padding: 6px 6px;
+    max-width: 350px;
     min-width: 0;
+    padding: 8px 12px 6px;
+    min-height: 0;
+    border-radius: 15px 15px 0 0;
+    gap: 4px;
+    margin: 0 auto;
   }
   .track-title {
-    font-size: 16px;
-    margin-right: 8px;
+    font-size: 13px;
   }
   .play-pause-btn {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
   }
-  .audio-controls-row {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .progress-bar {
-    min-width: 40px;
-    max-width: 100px;
-  }
-  .time-display {
-    font-size: 11px;
-    min-width: 28px;
-  }
-  .audio-btn {
-    font-size: 15px;
-    padding: 6px;
+  .track-title-row {
+    margin-bottom: 2px;
   }
 }
+
+/* iPhone-specific styles */
+@media (max-width: 414px) {
+  .audio-player-container {
+    bottom: 0;
+    justify-content: center;
+  }
+  .audio-player {
+    max-width: 320px;
+    border-radius: 12px 12px 0 0;
+    padding: 8px 12px 6px;
+    background-color: rgba(24, 24, 24, 0.85);
+  }
+  .track-title {
+    font-size: 12px;
+  }
+  .audio-controls-row {
+    gap: 2px;
+  }
+  .time-display {
+    min-width: 26px;
+    font-size: 9px;
+  }
+  .play-pause-btn {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .audio-controls-row {
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding: 0;
+  }
+  .progress-bar {
+    min-width: 60px;
+    max-width: none;
+    flex: 1;
+  }
+  .time-display {
+    font-size: 10px;
+    min-width: 24px;
+  }
+  .audio-btn {
+    font-size: 14px;
+    padding: 4px;
+  }
+}
+
+.play-pause-btn.pulse {
+  animation: pulse-btn 1.2s infinite;
+}
+
+@keyframes pulse-btn {
+  0% {
+    box-shadow: 0 0 0 0 rgba(183, 167, 122, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(183, 167, 122, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(183, 167, 122, 0);
+  }
+}
+}
+
+/* Place the audio player container just before the <footer> in your HTML for sticky positioning to work correctly. */
 
 /* Gallery, Lightbox, and other UI components would follow here... */

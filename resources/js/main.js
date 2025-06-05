@@ -26,69 +26,125 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const audio = document.getElementById('audio-player');
   const playPauseBtn = document.getElementById('play-pause-btn');
-  const playPauseIcon = playPauseBtn.querySelector('i');
+  if (playPauseBtn) {
+    playPauseBtn.classList.add('pulse');
+    playPauseBtn.addEventListener('click', function () {
+      playPauseBtn.classList.remove('pulse');
+    });
+  }
+
+  // Only add event listeners if all audio player elements exist
+  const audio = document.getElementById('audio-player');
+  const playPauseIcon = playPauseBtn ? playPauseBtn.querySelector('i') : null;
   const progressBar = document.getElementById('progress-bar');
   const currentTimeEl = document.getElementById('current-time');
   const durationEl = document.getElementById('duration');
   const muteBtn = document.getElementById('mute-btn');
-  const muteIcon = muteBtn.querySelector('i');
-  const volumeSlider = document.getElementById('volume-slider');
+  const muteIcon = muteBtn ? muteBtn.querySelector('i') : null;
 
-  function formatTime(time) {
-    const min = Math.floor(time / 60);
-    const sec = Math.floor(time % 60).toString().padStart(2, '0');
-    return `${min}:${sec}`;
-  }
-
-  audio.addEventListener('loadedmetadata', function () {
-    durationEl.textContent = formatTime(audio.duration);
-    progressBar.max = Math.floor(audio.duration);
-  });
-
-  audio.addEventListener('timeupdate', function () {
-    currentTimeEl.textContent = formatTime(audio.currentTime);
-    progressBar.value = Math.floor(audio.currentTime);
-  });
-
-  playPauseBtn.addEventListener('click', function () {
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
+  if (audio && playPauseBtn && playPauseIcon && progressBar && currentTimeEl && durationEl && muteBtn && muteIcon) {
+    function formatTime(time) {
+      const min = Math.floor(time / 60);
+      const sec = Math.floor(time % 60).toString().padStart(2, '0');
+      return `${min}:${sec}`;
     }
-  });
 
-  audio.addEventListener('play', function () {
-    playPauseIcon.classList.remove('fa-play');
-    playPauseIcon.classList.add('fa-pause');
-  });
-  audio.addEventListener('pause', function () {
-    playPauseIcon.classList.remove('fa-pause');
-    playPauseIcon.classList.add('fa-play');
-  });
+    audio.addEventListener('loadedmetadata', function () {
+      durationEl.textContent = formatTime(audio.duration);
+      progressBar.max = Math.floor(audio.duration);
+    });
 
-  progressBar.addEventListener('input', function () {
-    audio.currentTime = progressBar.value;
-  });
+    audio.addEventListener('timeupdate', function () {
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+      progressBar.value = Math.floor(audio.currentTime);
+    });
 
-  muteBtn.addEventListener('click', function () {
-    audio.muted = !audio.muted;
-    muteIcon.className = audio.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
-  });
+    playPauseBtn.addEventListener('click', function () {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
 
-  volumeSlider.addEventListener('input', function () {
-    audio.volume = volumeSlider.value;
-    audio.muted = audio.volume === 0;
-    muteIcon.className = audio.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
-  });
+    audio.addEventListener('play', function () {
+      playPauseIcon.classList.remove('fa-play');
+      playPauseIcon.classList.add('fa-pause');
+    });
+    audio.addEventListener('pause', function () {
+      playPauseIcon.classList.remove('fa-pause');
+      playPauseIcon.classList.add('fa-play');
+    });
 
-  // Initialize
-  if (audio.readyState >= 1) {
-    durationEl.textContent = formatTime(audio.duration);
-    progressBar.max = Math.floor(audio.duration);
+    progressBar.addEventListener('input', function () {
+      audio.currentTime = progressBar.value;
+    });
+
+    muteBtn.addEventListener('click', function () {
+      audio.muted = !audio.muted;
+      muteIcon.className = audio.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+    });
+
+    // Initialize
+    if (audio.readyState >= 1) {
+      durationEl.textContent = formatTime(audio.duration);
+      progressBar.max = Math.floor(audio.duration);
+    }
+    currentTimeEl.textContent = formatTime(audio.currentTime);
   }
-  currentTimeEl.textContent = formatTime(audio.currentTime);
-  volumeSlider.value = audio.volume;
+
+  // Audio player footer visibility detection
+  const audioPlayerContainer = document.querySelector('.audio-player-container');
+  const footer = document.querySelector('.site-footer');
+  
+  if (audioPlayerContainer && footer) {
+    // Function to check if footer is in viewport and update player visibility
+    function updatePlayerVisibility() {
+      const footerRect = footer.getBoundingClientRect();
+      // Check if any part of the footer is visible in the viewport
+      const isFooterVisible = (
+        footerRect.top < window.innerHeight && 
+        footerRect.bottom > 0
+      );
+      
+      if (isFooterVisible) {
+        // When footer is visible, hide the audio player
+        audioPlayerContainer.classList.add('hidden');
+      } else {
+        // When footer is not visible, show the audio player
+        audioPlayerContainer.classList.remove('hidden');
+      }
+    }
+    
+    // Run on scroll events with throttling for better performance
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      if (!scrollTimeout) {
+        scrollTimeout = setTimeout(function() {
+          updatePlayerVisibility();
+          scrollTimeout = null;
+        }, 10); // Throttle to improve performance
+      }
+    });
+    
+    // Also run on resize events
+    window.addEventListener('resize', updatePlayerVisibility);
+    
+    // Run once on page load after a slight delay to ensure DOM is fully processed
+    setTimeout(updatePlayerVisibility, 100);
+    
+    // Also use IntersectionObserver as a backup method
+    const footerObserver = new IntersectionObserver(
+      (entries) => {
+        updatePlayerVisibility();
+      },
+      {
+        root: null,
+        threshold: [0, 0.1, 0.5, 1.0] // Multiple thresholds for better detection
+      }
+    );
+    
+    footerObserver.observe(footer);
+  }
 });

@@ -15,141 +15,160 @@
   <!-- No inline styles needed for background image -->
 </head>
 <body>
-  <!-- Image Background -->
+  <!-- Background Image -->
   <div class="background-image">
     <!-- Empty div with background image applied via CSS -->
   </div>
 
-  <!-- Audio Player -->
-  <div class="audio-player-container">
-    <audio id="audio-player" src="resources/audio/ever deserved v3.1.wav"></audio>
-    <div class="audio-player">
-      <div class="track-title-row">
-        <span class="track-title">Ever Deserved</span>
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+    <div class="content">
+      <div class="header">
+        <div class="top-social-links fade-in-element">
+          <a href="https://open.spotify.com/artist/0KX7BCrciAnctgVZF1R6kV" target="_blank"><i class="fab fa-spotify"></i></a>
+          <a href="https://www.instagram.com/jakedillonofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@jakedillon_music?_t=ZP-8wtrbbmfOet&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <h1 class="fade-in-element">Jake Dillon</h1>
+        <div class="nav-links fade-in-element">
+          <a href="#about">About</a>
+          <a href="#events">Events</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <!-- Hamburger menu for mobile can remain if desired -->
       </div>
-      <div class="audio-controls-row">
-        <button id="play-pause-btn" class="audio-btn play-pause-btn" aria-label="Play/Pause">
-          <i class="fas fa-play"></i>
-        </button>
-        <span class="time-display" id="current-time">0:00</span>
-        <input type="range" id="progress-bar" class="progress-bar" value="0" min="0" max="100" step="1" aria-label="Seek">
-        <span class="time-display" id="duration">0:00</span>
-        <button id="mute-btn" class="audio-btn" aria-label="Mute/Unmute">
-          <i class="fas fa-volume-up"></i>
-        </button>
+      <!-- ...existing code... -->
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="section-content">
+        <h2 class="section-title animate-on-scroll">About</h2>
+        <div class="bio-text">
+          <p class="animate-on-scroll">I'm Jake Dillon, a 29-year-old former special ed teacher and singer songwriter from Philly, now living in Bucks County. I blend folk, country, and indie pop into a sound that's honest and down to earth. I play drums, piano, and guitar on my tracks and write almost every day, drawing inspiration from relationships, heartbreak, and my faith journey. Creating music people can truly connect with is my passion.</p>
+          <p class="animate-on-scroll">Since 2019, I've released over 70 original songs and tour the country regularly. I play local shows weekly, as well as stops in places like Waco, Texas — at Chip and Joanna Gaines' Magnolia Silos. Philly is home, and I'm proud to have built a loyal following where it all began.</p>
+        </div>
       </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+      <div class="section-content">
+        <h2 class="section-title animate-on-scroll">Upcoming Events</h2>
+        <div id="events-container" class="events-grid">
+          <!-- Events will be loaded dynamically here -->
+          <div class="loading">Loading events...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <div class="section-content">
+        <h2 class="section-title animate-on-scroll">Gallery</h2>
+        <p class="gallery-intro animate-on-scroll"></p>
+        <div class="photo-gallery animate-on-scroll">
+          <div class="gallery-item" tabindex="0">
+            <img src="resources/images/gallery/JD02.jpg"class="gallery-image" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+            </div>
+          </div>
+          <div class="gallery-item" tabindex="0">
+            <img src="resources/images/gallery/JD03.jpg" class="gallery-image" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+            </div>
+          </div>
+          <div class="gallery-item" tabindex="0">
+            <img src="resources/images/gallery/JD04.jpg" class="gallery-image" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+            </div>
+          </div>
+          <div class="gallery-item" tabindex="0">
+            <img src="resources/images/gallery/JD05.jpg" class="gallery-image" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-cta animate-on-scroll">
+          <p>See more on <a href="https://www.instagram.com/jakedillonofficial" target="_blank" class="instagram-link">Instagram <i class="fab fa-instagram"></i></a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="section-content">
+        <h2 class="section-title animate-on-scroll">Contact</h2>
+        <div class="contact-container animate-on-scroll">
+          <div class="contact-message">
+            <p>For bookings, collaborations, or just to say hello, connect with me on Instagram!</p>
+          </div>
+          <div class="contact-instagram">
+            <a href="https://www.instagram.com/jakedillonofficial" target="_blank" class="instagram-contact-link">
+              <i class="fab fa-instagram"></i>
+              <span>@jakedillonofficial</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audio Player (bottom, above footer) -->
+    <div class="audio-player-container">
+      <audio id="audio-player" src="resources/audio/ever deserved v3.1.wav"></audio>
+      <div class="audio-player">
+        <div class="track-title-row">
+          <span class="track-title">Ever Deserved</span>
+        </div>
+        <div class="audio-controls-row">
+          <button id="play-pause-btn" class="audio-btn play-pause-btn" aria-label="Play/Pause">
+            <i class="fas fa-play"></i>
+          </button>
+          <span class="time-display" id="current-time">0:00</span>
+          <input type="range" id="progress-bar" class="progress-bar" value="0" min="0" max="100" step="1" aria-label="Seek">
+          <span class="time-display" id="duration">0:00</span>
+          <button id="mute-btn" class="audio-btn" aria-label="Mute/Unmute">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-social-links animate-on-scroll">
+          <a href="https://open.spotify.com/artist/0KX7BCrciAnctgVZF1R6kV" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+          <a href="https://www.instagram.com/jakedillonofficial" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@jakedillon_music?_t=ZP-8wtrbbmfOet&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="footer-copyright">
+          &copy; Jake Dillon <span id="footer-year"></span>
+        </div>
+      </div>
+    </footer>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+    
+    <!-- Lightbox Modal for Gallery Images -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery lightbox">
+      <span class="lightbox-close" title="Close lightbox" aria-label="Close lightbox" tabindex="0">&times;</span>
+      <div class="lightbox-loader" id="lightbox-loader">
+        <div class="spinner"></div>
+      </div>
+      <img class="lightbox-content" id="lightbox-img" alt="" aria-describedby="lightbox-caption">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+      <div class="lightbox-controls">
+        <button class="lightbox-prev" title="Previous image" aria-label="View previous image" tabindex="0"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-next" title="Next image" aria-label="View next image" tabindex="0"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="lightbox-counter" aria-live="polite"></div>
     </div>
   </div>
-
-  <div class="content">
-    <div class="header">
-      <div class="top-social-links fade-in-element">
-        <a href="https://open.spotify.com/artist/0KX7BCrciAnctgVZF1R6kV" target="_blank"><i class="fab fa-spotify"></i></a>
-        <a href="https://www.instagram.com/jakedillonofficial" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@jakedillon_music?_t=ZP-8wtrbbmfOet&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-      </div>
-      <h1 class="fade-in-element">Jake Dillon</h1>
-      <div class="nav-links fade-in-element">
-        <a href="#about">About</a>
-        <a href="#events">Events</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-    <nav class="mobile-nav" id="mobile-nav">
-      <a href="#about">About</a>
-      <a href="#events">Events</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-      <div class="footer-social-links">
-        <a href="https://open.spotify.com/artist/0KX7BCrciAnctgVZF1R6kV" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-        <a href="https://www.instagram.com/jakedillonofficial" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@jakedillon_music?_t=ZP-8wtrbbmfOet&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </nav>
-  </div>
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="section-content">
-      <h2 class="section-title animate-on-scroll">About</h2>
-      <div class="bio-text">
-        <p class="animate-on-scroll">I'm Jake Dillon, a 29-year-old former special ed teacher and singer songwriter from Philly, now living in Bucks County. I blend folk, country, and indie pop into a sound that's honest and down to earth. I play drums, piano, and guitar on my tracks and write almost every day, drawing inspiration from relationships, heartbreak, and my faith journey. Creating music people can truly connect with is my passion.</p>
-        <p class="animate-on-scroll">Since 2019, I've released over 70 original songs and tour the country regularly. I play local shows weekly, as well as stops in places like Waco, Texas — at Chip and Joanna Gaines' Magnolia Silos. Philly is home, and I'm proud to have built a loyal following where it all began.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Events Section -->
-  <section id="events">
-    <div class="section-content">
-      <h2 class="section-title animate-on-scroll">Upcoming Events</h2>
-      <div id="events-container" class="events-grid">
-        <!-- Events will be loaded dynamically here -->
-        <div class="loading">Loading events...</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <div class="section-content">
-      <h2 class="section-title animate-on-scroll">Gallery</h2>
-      <p class="gallery-intro animate-on-scroll"></p>
-      <div class="photo-gallery animate-on-scroll">
-        <div class="gallery-item" tabindex="0">
-          <img src="resources/images/gallery/JD02.jpg"class="gallery-image" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-          </div>
-        </div>
-        <div class="gallery-item" tabindex="0">
-          <img src="resources/images/gallery/JD03.jpg" class="gallery-image" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-          </div>
-        </div>
-        <div class="gallery-item" tabindex="0">
-          <img src="resources/images/gallery/JD04.jpg" class="gallery-image" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-          </div>
-        </div>
-        <div class="gallery-item" tabindex="0">
-          <img src="resources/images/gallery/JD05.jpg" class="gallery-image" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
-          </div>
-        </div>
-      </div>
-      <div class="gallery-cta animate-on-scroll">
-        <p>See more on <a href="https://www.instagram.com/jakedillonofficial" target="_blank" class="instagram-link">Instagram <i class="fab fa-instagram"></i></a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="section-content">
-      <h2 class="section-title animate-on-scroll">Contact</h2>
-      <div class="contact-container animate-on-scroll">
-        <div class="contact-message">
-          <p>For bookings, collaborations, or just to say hello, connect with me on Instagram!</p>
-        </div>
-        <div class="contact-instagram">
-          <a href="https://www.instagram.com/jakedillonofficial" target="_blank" class="instagram-contact-link">
-            <i class="fab fa-instagram"></i>
-            <span>@jakedillonofficial</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Scripts -->
   <script src="resources/js/navigation.js"></script>
@@ -158,35 +177,5 @@
   <script src="resources/js/gallery.js"></script>
   <script src="resources/js/accessibility.js"></script>
   <script src="resources/js/main.js"></script>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-social-links animate-on-scroll">
-        <a href="https://open.spotify.com/artist/0KX7BCrciAnctgVZF1R6kV" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-        <a href="https://www.instagram.com/jakedillonofficial" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@jakedillon_music?_t=ZP-8wtrbbmfOet&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      </div>
-      <div class="footer-copyright">
-        &copy; Jake Dillon <span id="footer-year"></span>
-      </div>
-    </div>
-  </footer>
-  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
-  
-  <!-- Lightbox Modal for Gallery Images -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery lightbox">
-    <span class="lightbox-close" title="Close lightbox" aria-label="Close lightbox" tabindex="0">&times;</span>
-    <div class="lightbox-loader" id="lightbox-loader">
-      <div class="spinner"></div>
-    </div>
-    <img class="lightbox-content" id="lightbox-img" alt="" aria-describedby="lightbox-caption">
-    <div id="lightbox-caption" class="lightbox-caption"></div>
-    <div class="lightbox-controls">
-      <button class="lightbox-prev" title="Previous image" aria-label="View previous image" tabindex="0"><i class="fas fa-chevron-left"></i></button>
-      <button class="lightbox-next" title="Next image" aria-label="View next image" tabindex="0"><i class="fas fa-chevron-right"></i></button>
-    </div>
-    <div class="lightbox-counter" aria-live="polite"></div>
-  </div>
 </body>
 </html>
