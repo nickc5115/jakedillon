@@ -24,17 +24,20 @@
   <div class="audio-player-container">
     <audio id="audio-player" src="resources/audio/ever deserved v3.1.wav"></audio>
     <div class="audio-player">
-      <button id="play-pause-btn" class="audio-btn play-pause-btn" aria-label="Play/Pause">
-        <i class="fas fa-play"></i>
-      </button>
-      <span class="track-title">Ever Deserved</span>
-      <span class="time-display" id="current-time">0:00</span>
-      <input type="range" id="progress-bar" class="progress-bar" value="0" min="0" max="100" step="1" aria-label="Seek">
-      <span class="time-display" id="duration">0:00</span>
-      <button id="mute-btn" class="audio-btn" aria-label="Mute/Unmute">
-        <i class="fas fa-volume-up"></i>
-      </button>
-      <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+      <div class="track-title-row">
+        <span class="track-title">Ever Deserved</span>
+      </div>
+      <div class="audio-controls-row">
+        <button id="play-pause-btn" class="audio-btn play-pause-btn" aria-label="Play/Pause">
+          <i class="fas fa-play"></i>
+        </button>
+        <span class="time-display" id="current-time">0:00</span>
+        <input type="range" id="progress-bar" class="progress-bar" value="0" min="0" max="100" step="1" aria-label="Seek">
+        <span class="time-display" id="duration">0:00</span>
+        <button id="mute-btn" class="audio-btn" aria-label="Mute/Unmute">
+          <i class="fas fa-volume-up"></i>
+        </button>
+      </div>
     </div>
   </div>
 
