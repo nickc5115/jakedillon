@@ -21,9 +21,7 @@ const Events = (function() {
     
     // Add cache-busting timestamp to prevent the browser from using cached data
     const timestamp = new Date().getTime();
-    fetch(`resources/events.json?t=${timestamp}`, {
-      cache: 'no-store' // Force a network request, don't use any cache
-    })
+    fetch('/events.json')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
