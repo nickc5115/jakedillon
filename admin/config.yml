@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: nickc5115/jakedillon
+  branch: main
+  base_url: https://jakedillonmusic-cms-oauth.onrender.com
+  auth_endpoint: /auth
+
+media_folder: "resources/images/gallery"
+public_folder: "/resources/images/gallery"
+
+collections:
+  - name: "events"
+    label: "Events"
+    label_singular: "Event"
+    description: "Add or edit upcoming events"
+    files:
+      - file: "resources/events.json"
+        label: "Events"
+        name: "events"
+        format: "json"
+        fields:
+          - { label: "Events", name: "events", widget: "list", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Date", name: "date", widget: "datetime" },
+              { label: "Location", name: "location", widget: "string" },
+              { label: "Description", name: "description", widget: "text", required: false }
+            ]} 
