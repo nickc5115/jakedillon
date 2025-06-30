@@ -3,6 +3,8 @@ name: Generate Events JSON
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'events.json'
 
 jobs:
   build:
