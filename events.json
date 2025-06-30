@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "title": "The JDuo at 21 Locks Brewing Company",
+    "date": "June 22, 2025",
+    "location": "21 Locks Brewing Company, Morrisville, PA",
+    "link": "",
+    "description": "Come enjoy music from The JDuo while sipping on craft beers at 21 Locks Brewing Company.",
+    "filename": "2025-06-22-the-jduo-at-21-locks-brewing-company.md"
+  },
+  {
+    "title": "Solo at The Boathouse",
+    "date": "June 25, 2025",
+    "location": "The Boathouse, Lambertville, NJ",
+    "link": "",
+    "description": "An intimate solo performance at the scenic Boathouse in Lambertville.",
+    "filename": "2025-06-25-solo-at-the-boathouse.md"
+  },
+  {
+    "title": "The JDuo at Chambers",
+    "date": "June 28, 2025",
+    "location": "Chambers, Doylestown, PA",
+    "link": "",
+    "description": "Enjoy an evening of music from The JDuo at Chambers in downtown Doylestown.",
+    "filename": "2025-06-28-the-jduo-at-chambers.md"
+  },
+  {
+    "title": "The JDuo at Triumph Brewing",
+    "date": "June 29, 2025",
+    "location": "Triumph Brewing, Langhorne, PA",
+    "link": "",
+    "description": "Spend your Sunday afternoon with great music and craft beer at Triumph Brewing.",
+    "filename": "2025-06-29-the-jduo-at-triumph-brewing.md"
+  },
+  {
+    "title": "Solo at Evansburg Vineyards",
+    "date": "July 20, 2025",
+    "location": "Evansburg Vineyards, PA",
+    "link": "",
+    "description": "A relaxing afternoon of music among the vines at Evansburg Vineyards",
+    "filename": "2025-07-20-solo-at-evansburg-vineyards.md"
+  },
+  {
+    "title": "Full band at Shady Brook Main Stage",
+    "date": "September 20, 2025",
+    "location": "Shady Brook Farm, PA",
+    "link": "",
+    "description": "Catch Jake Dillon with a full band on The Shady Brook Main Stage playing all of your favorite covers and originals",
+    "filename": "2025-09-20-full-band-at-shady-brook-main-stage.md"
+  },
+  {
+    "title": "Solo @ The Pennsylvania Chocolate and Coffee Festival",
+    "date": "September 28, 2025",
+    "location": "Greater Philadelphia Expo Center",
+    "link": "",
+    "description": "Catch Jake Dillon solo at The Pennsylvania Choclate and Coffee Festival",
+    "filename": "2025-09-28-solo-at-the-pennsylvania-chocolate-and-coffee-festival.md"
+  }
+]
