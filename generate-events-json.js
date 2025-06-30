@@ -29,7 +29,7 @@ fs.readdirSync(eventsDir).forEach(file => {
     events.push({
       title: data.title || '',
       date,
-      time,
+      time: data.time_range || time,
       location: data.location || '',
       link: data.link || '',
       description: body.trim(),
