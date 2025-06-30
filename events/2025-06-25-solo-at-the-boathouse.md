@@ -1,6 +1,7 @@
 ---
 title: "Solo at The Boathouse"
-date: 2025-06-25T18:00:00.000Z
+date: 2025-06-25
 location: "The Boathouse, Lambertville, NJ"
+time_range: "6:00 PM - 9:00 PM"
 ---
 An intimate solo performance at the scenic Boathouse in Lambertville. 

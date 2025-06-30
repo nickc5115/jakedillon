@@ -16,7 +16,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Date", name: "date", widget: "date" }
       - { label: "Time Range", name: "time_range", widget: "string", required: false }
       - { label: "Location", name: "location", widget: "string" }
       - { label: "Description", name: "body", widget: "markdown" }
