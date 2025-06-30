@@ -4,7 +4,6 @@ backend:
   branch: main
   base_url: https://jakedillonmusic-cms-oauth.onrender.com
   auth_endpoint: /auth
-  origins: http://localhost:8888,https://jakedillonmusic.com,http://jakedillonmusic.com,https://www.jakedillonmusic.com,http://www.jakedillonmusic.com,https://nickc5115.github.io/jakedillon/
 
 media_folder: "resources/images/gallery"
 public_folder: "/resources/images/gallery"
