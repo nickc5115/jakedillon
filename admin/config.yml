@@ -11,6 +11,20 @@ public_folder: "/resources/images/gallery"
 collections:
   - name: "events"
     label: "Events"
+    folder: "events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Link", name: "link", widget: "string", required: false }
+      - { label: "Description", name: "body", widget: "text", required: false }
+
+  - name: "events"
+    label: "Events"
     label_singular: "Event"
     description: "Add or edit upcoming events"
     files:

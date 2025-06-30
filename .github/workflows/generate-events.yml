@@ -1,0 +1,31 @@
+name: Generate Events JSON
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install gray-matter
+
+      - name: Run generate-events-json.js
+        run: node generate-events-json.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add resources/events.json
+          git commit -m "Auto-generate events.json [skip ci]" || echo "No changes to commit"
+          git push 
